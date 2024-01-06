@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+   <item>
+      <id>1</id>
+      <name>Item 1</name>
+      <price>10.99</price>
+   </item>
+   <!-- Add more items as needed -->
+</data>
