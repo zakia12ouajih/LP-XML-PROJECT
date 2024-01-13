@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /LP-XML-PROJECT/public
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /LP-XML-PROJECT/public/index.php [L]
