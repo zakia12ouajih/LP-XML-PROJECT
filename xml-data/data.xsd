@@ -93,6 +93,7 @@
             <xs:element ref="chef-scolarite" minOccurs="1" maxOccurs="1"></xs:element>
 
          </xs:sequence>
+         <xs:attribute name="idAdminEcole" type="xs:ID"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -110,6 +111,8 @@
             <xs:element ref="email"></xs:element>
             <xs:element ref="password"></xs:element>
          </xs:sequence>
+         <xs:attribute name="idDirecteur-generale" type="xs:ID"></xs:attribute>
+
       </xs:complexType>
    </xs:element>
 
@@ -123,6 +126,8 @@
             <xs:element ref="email"></xs:element>
             <xs:element ref="password"></xs:element>
          </xs:sequence>
+         <xs:attribute name="idDirecteur-adjoint" type="xs:ID"></xs:attribute>
+
       </xs:complexType>
    </xs:element>
 
@@ -136,6 +141,8 @@
             <xs:element ref="email"></xs:element>
             <xs:element ref="password"></xs:element>
          </xs:sequence>
+         <xs:attribute name="idChef-departement" type="xs:ID"></xs:attribute>
+
       </xs:complexType>
    </xs:element>
 
@@ -149,6 +156,8 @@
             <xs:element ref="email"></xs:element>
             <xs:element ref="password"></xs:element>
          </xs:sequence>
+         <xs:attribute name="idChef-scolarite" type="xs:ID"></xs:attribute>
+
       </xs:complexType>
    </xs:element>
 
