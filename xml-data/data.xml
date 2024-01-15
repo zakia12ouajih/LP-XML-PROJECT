@@ -4,6 +4,7 @@
       <nom>admin</nom>
       <email>admin@gmail.com</email>
       <password>12345678</password>
+      <role>admin</role>
    </adminApp>
    <users>
       <user>
@@ -18,5 +19,11 @@
          <email>test2@gmail.com</email>
          <role>condidat</role>
       </user>
-   </users>
+   <user>
+      <nom>test4</nom>
+      <password>12345678</password>
+      <email>test4@gmail.com</email>
+      <role>condidat</role>
+   </user>
+</users>
 </est-safi>

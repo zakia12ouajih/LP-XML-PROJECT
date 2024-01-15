@@ -4,17 +4,142 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
    <xs:element name="est-safi">
       <xs:complexType>
-            <xs:sequence>
-               <xs:element name="adminApp" maxOccurs="unbounded">
-                  <xs:complexType>
-                        <xs:sequence>
-                           <xs:element name="nom" type="xs:string"/>
-                           <xs:element name="email" type="xs:string"/>
-                           <xs:element name="password" type="xs:string"/>
-                        </xs:sequence>
-                  </xs:complexType>
-               </xs:element>
-            </xs:sequence>
+         <xs:sequence>
+            <xs:element ref="adminApp" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="adminEcole" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="filieres"></xs:element>
+            <xs:element ref="licences"></xs:element>
+            <xs:element ref="modules"></xs:element>
+            <xs:element ref="departements"></xs:element>
+            <xs:element ref="condidats"></xs:element>
+            <xs:element ref="cours"></xs:element>
+            <xs:element ref="preinscription-1"></xs:element>
+            <xs:element ref="preinscription-2"></xs:element>
+         </xs:sequence>
       </xs:complexType>
    </xs:element>
+
+   <!-- element commun -->
+   <xs:element name="nom" type="xs:string"/>
+   <xs:element name="prenom" type="xs:string"/>
+   <xs:element name="cin" type="cinType"></xs:element>
+   <xs:element name="email" type="emailType"/>
+   <xs:element name="password" type="passwordType"/>
+
+   <!-- Simple types -->
+   <xs:simpleType name="emailType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="passwordType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value=".{8,}"/> <!-- Minimum length of 8 characters -->
+      </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="cinType">
+      <xs:restriction base="xs:string">
+         <!-- Pattern for CIN: Two letters followed by up to six numbers -->
+         <xs:pattern value="[A-Za-z]{2}[0-9]{1,6}"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+
+
+   <!-- element adminApp -->
+   <xs:element name="adminApp">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="email"/>
+            <xs:element ref="password"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+
+<!-- ######################################################################################################################## -->
+   <!-- element adminEcole -->
+   <xs:element name="adminEcole">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="directeur-generale" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="directeur-adjoint" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="chef-departement" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="chef-scolarite" minOccurs="1" maxOccurs="1"></xs:element>
+
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+
+<!-- ######################################################################################################################## -->
+   <!-- sub element adminEcole -->
+
+   <!-- directeur generale -->
+   <xs:element name="directeur-generale">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- directeur adjoint -->
+   <xs:element name="directeur-adjoint">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- chef-departemrnt -->
+   <xs:element name="chef-departement">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- chef-scolarite -->
+   <xs:element name="chef-scolarite">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- ######################################################################################################################## -->
+   <!-- filieres -->
+   <xs:element name="filieres">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="filiere" minOccurs="1" maxOccurs="unbounded"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <!-- sub filieres -->
+   <xs:element name="filiere"></xs:element>
 </xs:schema>
