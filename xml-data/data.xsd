@@ -18,6 +18,7 @@
             <xs:element ref="diplomeBac2"></xs:element>
             <xs:element ref="diplomeBac"></xs:element>
             <xs:element ref="concours"></xs:element>
+            <xs:element ref="dossier-physique"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -356,15 +357,37 @@
    </xs:sequence>
 </xs:complexType>
 
-<xs:element name="councours">
+<xs:element name="concours">
    <xs:complexType>
       <xs:sequence>
-         <xs:element ref="idConcours"></xs:element>
-         <xs:element ref="dateCouncour"></xs:element>
-         <xs:element ref="condidatConcours"></xs:element>
+         <xs:element ref="idConcours" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="dateCouncour" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="condidatConcours" minOccurs="1" maxOccurs="1"></xs:element>
       </xs:sequence>
    </xs:complexType>
 </xs:element>
+
+<!-- ######################################################################################################################## -->
+<!-- dossier physique -->
+<xs:element name="idDossier" type="xs:ID"></xs:element>
+<xs:element name="pdf-cin" type="xs:boolean"></xs:element>
+<xs:element name="pdf-bacFace1" type="xs:boolean"></xs:element>
+<xs:element name="pdf-bacFace2" type="xs:boolean"></xs:element>
+<xs:element name="pdf-bac2" type="xs:boolean"></xs:element>
+<xs:element name="dossier-physique">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element ref="idDossier" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="pdf-cin" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="pdf-bacFace1" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="pdf-bacFace2" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="pdf-bac2" minOccurs="1" maxOccurs="1"></xs:element>
+
+
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
 
 
 
