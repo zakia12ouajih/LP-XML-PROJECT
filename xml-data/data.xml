@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<data>
-   <item>
-      <id>1</id>
-      <name>Item 1</name>
-      <price>10.99</price>
-   </item>
-   <!-- Add more items as needed -->
-</data>
+<est-safi>
+   <adminApp>
+      <nom>admin</nom>
+      <email>admin@gmail.com</email>
+      <password>12345678</password>
+   </adminApp>
+   <users>
+      <user>
+         <nom>test1</nom>
+         <password>12345678</password>
+         <email>test1@gmail.com</email>
+         <role>condidat</role>
+      </user>
+      <user>
+         <nom>test2</nom>
+         <password>$2y$10$qVbyMZkUURvU684qzruDke3E3rMHjNQNMQf26d6ibkQDqSbkl9Cfe</password>
+         <email>test2@gmail.com</email>
+         <role>condidat</role>
+      </user>
+   </users>
+</est-safi>

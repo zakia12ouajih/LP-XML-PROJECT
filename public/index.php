@@ -13,11 +13,11 @@
 </head>
 
 <body class="container">
-   <?php include ('../includes/header.php');?>
+   <?php include('../includes/header.php'); ?>
 
    <h1>Welcome to XML Project</h1>
-   <?php include('../src/index.php');?>
-   
+   <?php include('../src/index.php'); ?>
+
 
 
 

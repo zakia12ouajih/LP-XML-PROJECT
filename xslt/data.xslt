@@ -12,16 +12,16 @@
                   <th>Name</th>
                   <th>Price</th>
                </tr>
-               <xsl:for-each select="data/item">
+               <xsl:for-each select="est-safi/adminApp">
                   <tr>
                      <td>
-                        <xsl:value-of select="id" />
+                        <xsl:value-of select="nom" />
                      </td>
                      <td>
-                        <xsl:value-of select="name" />
+                        <xsl:value-of select="email" />
                      </td>
                      <td>
-                        <xsl:value-of select="price" />
+                        <xsl:value-of select="password" />
                      </td>
                   </tr>
                </xsl:for-each>
