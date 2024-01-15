@@ -12,9 +12,12 @@
             <xs:element ref="modules"></xs:element>
             <xs:element ref="departements"></xs:element>
             <xs:element ref="condidats"></xs:element>
-            <xs:element ref="cours"></xs:element>
+            <xs:element ref="matieres"></xs:element>
             <xs:element ref="preinscription-1"></xs:element>
             <xs:element ref="preinscription-2"></xs:element>
+            <xs:element ref="diplomeBac2"></xs:element>
+            <xs:element ref="diplomeBac"></xs:element>
+            <xs:element ref="concours"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -149,7 +152,221 @@
             <xs:element ref="idFiliere" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="nomFiliere" minOccurs="1"/>
          </xs:sequence>
-         <xs:attribute name="myAttr" type="xs:string" />
+         <xs:attribute name="refDepatement" type="xs:IDREF" />
       </xs:complexType>
    </xs:element>
+
+   <!-- ######################################################################################################################## -->
+   <!-- licence -->
+   <xs:element name="idLicence" type="xs:ID"></xs:element>
+   <xs:element name="nomLicence" type="xs:string"></xs:element>
+   <xs:element name="licences">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:sequence>
+               <xs:element ref="licence" minOccurs="1" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <!-- sub licence -->
+   <xs:element name="licence">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idLicence"></xs:element>
+            <xs:element ref="nomLicence"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="refDepartement" type="xs:IDREF"></xs:attribute>
+         <xs:attribute name="refFiliere" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+   </xs:element>
+
+
+   <!-- ######################################################################################################################## -->
+   <!-- departements -->
+   <xs:element name="idDepartement" type="xs:ID"></xs:element>
+   <xs:element name="nomDepartement" type="xs:string"></xs:element>
+   <xs:element name="departements">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="departement"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="departement">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idDepartement"></xs:element>
+            <xs:element ref="nomDepartement"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="refChefDepartement" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- ######################################################################################################################## -->
+   <!-- modules -->
+   <xs:element name="idModule" type="xs:ID"></xs:element>
+   <xs:element name="nomModule" type="xs:string"></xs:element>
+   <xs:element name="nbreHeure" type="xs:duration"></xs:element>
+   <xs:element name="modules">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="module" minOccurs="1" maxOccurs="unbounded"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="module">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idModule" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="nomModule" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="nbreHeure" minOccurs="1" maxOccurs="1"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="refFiliere" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+   </xs:element>
+   <!-- ######################################################################################################################## -->
+   <!-- matieres -->
+   <xs:element name="idMatiere" type="xs:ID"></xs:element>
+   <xs:element name="nomMatiere" type="xs:string"></xs:element>
+   <xs:element name="matieres">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="matiere" minOccurs="1"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="matiere">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idMatiere" ></xs:element>
+            <xs:element ref="nomMatiere"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="refModule" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+   </xs:element>
+
+   <!-- ######################################################################################################################## -->
+   <!-- diplomeBbac+2 -->
+
+   
+      <xs:simpleType name="montionBac2M">
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="tres bien"></xs:enumeration>
+            <xs:enumeration value="bien"></xs:enumeration>
+            <xs:enumeration value="assez bien"></xs:enumeration>
+            <xs:enumeration value="passable"></xs:enumeration>
+         </xs:restriction>
+      </xs:simpleType>
+      
+      <xs:simpleType name="typeBac2M">
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="DTS"></xs:enumeration>
+            <xs:enumeration value="BTS"></xs:enumeration>
+            <xs:enumeration value="DUT"></xs:enumeration>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="typeBacM">
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="PC"></xs:enumeration>
+            <xs:enumeration value="SVT"></xs:enumeration>
+            <xs:enumeration value="MATH"></xs:enumeration>
+         </xs:restriction>
+      </xs:simpleType>
+   
+
+   <xs:element name="idBac2" type="xs:ID"></xs:element>
+   <xs:element name="nomBac2" type="xs:string"></xs:element>
+   <xs:element name="dateObtnBac2" type="xs:date"></xs:element>
+   <xs:element name="region" type="xs:string"></xs:element>
+   <xs:element name="academie" type="xs:string"></xs:element>
+   <xs:element name="noteBac2" type="xs:double"></xs:element>
+   <xs:element name="montionBac2" type="montionBac2M"></xs:element>
+   <xs:element name="typeBac2" type="typeBac2M"></xs:element>
+   
+   
+   
+   <xs:element name="idBac" type="xs:ID"></xs:element>
+   <xs:element name="nomBac" type="xs:string"></xs:element>
+   <xs:element name="dateObtnBac" type="xs:date"></xs:element>
+   <xs:element name="noteBac" type="xs:double"></xs:element>
+   <xs:element name="montionBac" type="montionBac2M"></xs:element>
+   <xs:element name="typeBac" type="typeBac2M"></xs:element>
+   
+
+
+   <xs:element name="diplomeBac2">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="bac2"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bac2">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idBac2"></xs:element>
+            <xs:element ref="nomBac2"></xs:element>
+            <xs:element ref="typeBac2"></xs:element>
+            <xs:element ref="dateObtnBac2"></xs:element>
+            <xs:element ref="region"></xs:element>
+            <xs:element ref="academie"></xs:element>
+            <xs:element ref="noteBac2"></xs:element>
+            <xs:element ref="montionBac2"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="idCondidat" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+
+
+      <!-- diplomeBbac+2 -->
+   </xs:element>
+   <xs:element name="diplomeBac">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="bac2"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bac">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="idBac"></xs:element>
+            <xs:element ref="nomBac"></xs:element>
+            <xs:element ref="typeBac"></xs:element>
+            <xs:element ref="dateObtnBac"></xs:element>
+            <xs:element ref="region"></xs:element>
+            <xs:element ref="academie"></xs:element>
+            <xs:element ref="noteBac"></xs:element>
+            <xs:element ref="montionBac"></xs:element>
+         </xs:sequence>
+         <xs:attribute name="idCondidat" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>
+
+   </xs:element>
+
+<!-- ######################################################################################################################## -->
+<!-- CONCOURs -->
+<xs:element name="idConcours" type="xs:ID"></xs:element>
+<xs:element name="dateCouncour" type="xs:date"></xs:element>
+<xs:element name="condidatConcours" type="condidatConcoursType"></xs:element>
+
+<xs:complexType name="condidatConcoursType" >
+   <xs:sequence>
+      <xs:element name="idCondidat" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"></xs:element>
+   </xs:sequence>
+</xs:complexType>
+
+<xs:element name="councours">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element ref="idConcours"></xs:element>
+         <xs:element ref="dateCouncour"></xs:element>
+         <xs:element ref="condidatConcours"></xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+
+
+   
 </xs:schema>
