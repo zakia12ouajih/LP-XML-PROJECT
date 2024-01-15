@@ -28,8 +28,25 @@
    <xs:element name="cin" type="cinType"></xs:element>
    <xs:element name="email" type="emailType"/>
    <xs:element name="password" type="passwordType"/>
+   <xs:element name="tele" type="teleType"/>
+   <xs:element name="cne" type="cneType"/>
+
 
    <!-- Simple types -->
+   <xs:simpleType name="teleType">
+   <xs:restriction base="xs:string">
+      <!-- Define a pattern for Morocco phone number -->
+      <xs:pattern value="\+212-6[0-9]{8}|06[0-9]{8}"/>
+   </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="cneType">
+   <xs:restriction base="xs:string">
+<!-- Define a pattern for Morocco CNE number -->
+<xs:pattern value="[A-Z]\d{9}"/>
+   </xs:restriction>
+</xs:simpleType>
+
    <xs:simpleType name="emailType">
       <xs:restriction base="xs:string">
          <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
@@ -136,7 +153,7 @@
 
    <!-- ######################################################################################################################## -->
    <!-- filieres -->
-   <xs:element name="idFiliere" type="xs:ID"></xs:element>
+<xs:element name="idFiliere" type="xs:ID"></xs:element>
    <xs:element name="nomFiliere" type="xs:string"></xs:element>
    <xs:element name="filieres">
       <xs:complexType>
@@ -156,7 +173,7 @@
       </xs:complexType>
    </xs:element>
 
-   <!-- ######################################################################################################################## -->
+<!-- ######################################################################################################################## -->
    <!-- licence -->
    <xs:element name="idLicence" type="xs:ID"></xs:element>
    <xs:element name="nomLicence" type="xs:string"></xs:element>
@@ -165,7 +182,7 @@
          <xs:sequence>
             <xs:sequence>
                <xs:element ref="licence" minOccurs="1" maxOccurs="unbounded"></xs:element>
-            </xs:sequence>
+</xs:sequence>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -175,12 +192,34 @@
          <xs:sequence>
             <xs:element ref="idLicence"></xs:element>
             <xs:element ref="nomLicence"></xs:element>
-         </xs:sequence>
+            </xs:sequence>
          <xs:attribute name="refDepartement" type="xs:IDREF"></xs:attribute>
          <xs:attribute name="refFiliere" type="xs:IDREF"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
+      <!-- ######################################################################################################################## -->
+   <!-- condidats -->
+      <xs:element name="condidats">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="condidat"></xs:element>
+         </xs:sequence>  
+      </xs:complexType>  
+      </xs:element>  
+   <xs:element name="condidat">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element ref="tele"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="cne"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
 
    <!-- ######################################################################################################################## -->
    <!-- departements -->
@@ -212,7 +251,7 @@
       <xs:complexType>
          <xs:sequence>
             <xs:element ref="module" minOccurs="1" maxOccurs="unbounded"></xs:element>
-         </xs:sequence>
+            </xs:sequence>
       </xs:complexType>
    </xs:element>
    <xs:element name="module">
@@ -221,7 +260,7 @@
             <xs:element ref="idModule" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomModule" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nbreHeure" minOccurs="1" maxOccurs="1"></xs:element>
-         </xs:sequence>
+            </xs:sequence>
          <xs:attribute name="refFiliere" type="xs:IDREF"></xs:attribute>
       </xs:complexType>
    </xs:element>
@@ -327,7 +366,7 @@
          </xs:sequence>
       </xs:complexType>
    </xs:element>
-   <xs:element name="bac">
+<xs:element name="bac">
       <xs:complexType>
          <xs:sequence>
             <xs:element ref="idBac"></xs:element>
@@ -356,7 +395,7 @@
    </xs:sequence>
 </xs:complexType>
 
-<xs:element name="councours">
+<xs:element name="concours">
    <xs:complexType>
       <xs:sequence>
          <xs:element ref="idConcours"></xs:element>
@@ -370,3 +409,4 @@
 
    
 </xs:schema>
+   
