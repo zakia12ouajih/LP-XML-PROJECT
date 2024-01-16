@@ -6,24 +6,55 @@
       <password>12345678</password>
       <role>admin</role>
    </adminApp>
-   <users>
-      <user>
-         <nom>test1</nom>
+   <adminEcole>
+      <directeur-generale>
+         <nom>directeur generale 1 nom</nom>
+         <prenom>directeur generale 1 prenom</prenom>
+         <cin>JH209378</cin>
+         <email>direcGen1@gmail.com</email>
          <password>12345678</password>
-         <email>test1@gmail.com</email>
-         <role>condidat</role>
-      </user>
-      <user>
-         <nom>test2</nom>
-         <password>$2y$10$qVbyMZkUURvU684qzruDke3E3rMHjNQNMQf26d6ibkQDqSbkl9Cfe</password>
-         <email>test2@gmail.com</email>
-         <role>condidat</role>
-      </user>
-   <user>
-      <nom>test4</nom>
-      <password>12345678</password>
-      <email>test4@gmail.com</email>
-      <role>condidat</role>
-   </user>
-</users>
+      </directeur-generale>
+      <directeur-adjoint>
+         <nom>directeur adjoint 1 nom</nom>
+         <prenom>directeur adjoint 1 prenom</prenom>
+         <cin>JH235378</cin>
+         <email>direcAd1@gmail.com</email>
+         <password>12345678</password>
+      </directeur-adjoint>
+      <chef-departement>
+         <nom>chef departement 1 nom</nom>
+         <prenom>chef departement 1 prenom</prenom>
+         <cin>JH225378</cin>
+         <email>chefDep1@gmail.com</email>
+         <password>12345678</password>
+      </chef-departement>
+      <chef-scolarite>
+         <nom>chef scolarite 1 nom</nom>
+         <prenom>chef scolarite 1 prenom</prenom>
+         <cin>JH225098</cin>
+         <email>chefSco1@gmail.com</email>
+         <password>12345678</password>
+      </chef-scolarite>
+   </adminEcole>
+   <filieres>
+
+   </filieres>
+   <licences></licences>
+   <modules></modules>
+   <departements></departements>
+   <condidats>
+      <nom></nom>
+      <prenom></prenom>
+      <cin></cin>
+      <email></email>
+      <password></password>
+   </condidats>
+   <matieres></matieres>
+   <preinscription-1></preinscription-1>
+   <preinscription-2></preinscription-2>
+   <diplomeBac2></diplomeBac2>
+   <diplomeBac></diplomeBac>
+   <concours></concours>
+   <dossier-physique></dossier-physique>
+
 </est-safi>

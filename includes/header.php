@@ -34,7 +34,7 @@
                </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/LP-XML-PROJECT/public/login">Login</a>
-                  <a class="dropdown-item" href="/LP-XML-PROJECT/public/register">Register</a>
+                  <!-- <a class="dropdown-item" href="/LP-XML-PROJECT/public/register">Register</a> -->
                   <a class="dropdown-item" href="/LP-XML-PROJECT/public/logout">LogOut</a>
                </div>
             </li>

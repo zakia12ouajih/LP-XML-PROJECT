@@ -18,13 +18,13 @@ switch ($request) {
       require dirname(__DIR__) . '/public/pages/data.php';
       break;
 
-   case '/LP-XML-PROJECT/public/register':
-      require dirname(__DIR__) . '/public/pages/registerForm.php';
-      break;   
+   // case '/LP-XML-PROJECT/public/register':
+   //    require dirname(__DIR__) . '/public/pages/registerForm.php';
+   //    break;   
 
-   case '/LP-XML-PROJECT/public/register-process':
-         require dirname(__DIR__) . '/src/register.php';
-         break;
+   // case '/LP-XML-PROJECT/public/register-process':
+   //       require dirname(__DIR__) . '/src/register.php';
+   //       break;
 
    case '/LP-XML-PROJECT/public/login':
          require dirname(__DIR__) . '/public/pages/loginForm.php';
