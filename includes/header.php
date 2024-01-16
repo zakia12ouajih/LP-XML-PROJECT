@@ -12,6 +12,9 @@ if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
    $userRole = $_SESSION['userRole'];
 }
 
+
+
+
 // Access user information
 // Access other user information if needed
 ?>
