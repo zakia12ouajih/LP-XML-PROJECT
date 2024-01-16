@@ -222,25 +222,15 @@
    <xs:element name="condidat">
       <xs:complexType>
          <xs:sequence>
-<<<<<<< HEAD
+            <xs:element name="idcondidat" type="xs:ID"></xs:element>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="date_naissance" type="xs:date"/>
             <xs:element ref="tele" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="cne" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
-=======
-            <xs:element name="idcondidat" type="xs:ID"></xs:element>
-            <xs:element ref="nom"/>
-            <xs:element ref="prenom"/>
-            <xs:element name="date_naissance" type="xs:date"/>
-            <xs:element ref="tele"/>
-            <xs:element ref="cin"/>
-            <xs:element ref="cne"/>
-            <xs:element ref="email"></xs:element>
-            <xs:element ref="password"></xs:element>
->>>>>>> 9bddf367c1ecfdd4efcfdbcf610674a53815ee96
          </xs:sequence>
       </xs:complexType>
    </xs:element>
