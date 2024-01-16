@@ -18,7 +18,7 @@
             <xs:element ref="diplomeBac2"></xs:element>
             <xs:element ref="diplomeBac"></xs:element>
             <xs:element ref="concours"></xs:element>
-            <xs:element ref="dossier-physique"></xs:element>
+            <xs:element ref="dossiers-physiques"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -31,6 +31,16 @@
    <xs:element name="password" type="passwordType"/>
    <xs:element name="tele" type="teleType"/>
    <xs:element name="cne" type="cneType"/>
+   <xs:element name="role" type="roleType"></xs:element>
+   <xs:simpleType name="roleType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="admin"></xs:enumeration>
+         <xs:enumeration value="directeur-adjoint"></xs:enumeration>
+         <xs:enumeration value="directeur-generale"></xs:enumeration>
+         <xs:enumeration value="chef-departement"></xs:enumeration>
+         <xs:enumeration value="chef-scolarite"></xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
 
 
    <xs:simpleType name="teleType">
@@ -73,9 +83,9 @@
       <xs:complexType>
          <xs:sequence>
             <xs:element ref="nom"/>
-            <xs:element ref="prenom"/>
             <xs:element ref="email"/>
             <xs:element ref="password"/>
+            <xs:element ref="role"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -90,10 +100,7 @@
             <xs:element ref="directeur-adjoint" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="chef-departement" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="chef-scolarite" minOccurs="1" maxOccurs="1"></xs:element>
-            <xs:element ref="tele" minOccurs="1" maxOccurs="1"></xs:element>
-
          </xs:sequence>
-         <xs:attribute name="idAdminEcole" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -107,10 +114,10 @@
          <xs:sequence>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="tele" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1" ></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
-            <xs:element ref="tele" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="idDirecteur-generale" type="xs:ID" use="required"></xs:attribute>
 
@@ -123,10 +130,10 @@
          <xs:sequence>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="tele" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
-            <xs:element ref="tele" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="idDirecteur-adjoint" type="xs:ID" use="required"></xs:attribute>
 
@@ -139,6 +146,7 @@
          <xs:sequence>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="tele"></xs:element>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
@@ -154,6 +162,7 @@
          <xs:sequence>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="tele"></xs:element>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
@@ -165,7 +174,6 @@
 
    <!-- ######################################################################################################################## -->
    <!-- filieres -->
-<xs:element name="idFiliere" type="xs:ID" ></xs:element>
    <xs:element name="nomFiliere" type="xs:string"></xs:element>
    <xs:element name="filieres">
       <xs:complexType>
@@ -178,23 +186,22 @@
    <xs:element name="filiere">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idFiliere" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="nomFiliere" minOccurs="1"/>
          </xs:sequence>
          <xs:attribute name="refDepatement" type="xs:IDREF" use="required" />
+         <xs:attribute name="idFiliere" type="xs:ID" use="required" />
       </xs:complexType>
    </xs:element>
 
 <!-- ######################################################################################################################## -->
    <!-- licence -->
-   <xs:element name="idLicence" type="xs:ID"></xs:element>
    <xs:element name="nomLicence" type="xs:string"></xs:element>
    <xs:element name="licences">
       <xs:complexType>
          <xs:sequence>
             <xs:sequence>
                <xs:element ref="licence" minOccurs="1" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
+            </xs:sequence>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -202,11 +209,12 @@
    <xs:element name="licence">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idLicence" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomLicence" minOccurs="1" maxOccurs="1"></xs:element>
             </xs:sequence>
          <xs:attribute name="refDepartement" type="xs:IDREF" use="required"></xs:attribute>
          <xs:attribute name="refFiliere" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idLicence" type="xs:ID" use="required" />
+
       </xs:complexType>
    </xs:element>
 
@@ -237,7 +245,6 @@
 
    <!-- ######################################################################################################################## -->
    <!-- departements -->
-   <xs:element name="idDepartement" type="xs:ID"></xs:element>
    <xs:element name="nomDepartement" type="xs:string"></xs:element>
    <xs:element name="departements">
       <xs:complexType>
@@ -249,10 +256,10 @@
    <xs:element name="departement">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idDepartement" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomDepartement" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="refChefDepartement" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idDepartement" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -271,16 +278,15 @@
    <xs:element name="module">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idModule" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomModule" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nbreHeure" minOccurs="1" maxOccurs="1"></xs:element>
             </xs:sequence>
          <xs:attribute name="refFiliere" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idModule" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
    </xs:element>
    <!-- ######################################################################################################################## -->
    <!-- matieres -->
-   <xs:element name="idMatiere" type="xs:ID"></xs:element>
    <xs:element name="nomMatiere" type="xs:string"></xs:element>
    <xs:element name="matieres">
       <xs:complexType>
@@ -292,10 +298,10 @@
    <xs:element name="matiere">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idMatiere" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomMatiere" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="refModule" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idMatiere" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -328,7 +334,6 @@
       </xs:simpleType>
    
 
-   <xs:element name="idBac2" type="xs:ID"></xs:element>
    <xs:element name="nomBac2" type="xs:string"></xs:element>
    <xs:element name="dateObtnBac2" type="xs:date"></xs:element>
    <xs:element name="region" type="xs:string"></xs:element>
@@ -339,12 +344,11 @@
    
    
    
-   <xs:element name="idBac" type="xs:ID"></xs:element>
    <xs:element name="nomBac" type="xs:string"></xs:element>
    <xs:element name="dateObtnBac" type="xs:date"></xs:element>
    <xs:element name="noteBac" type="xs:double"></xs:element>
    <xs:element name="montionBac" type="montionBac2M"></xs:element>
-   <xs:element name="typeBac" type="typeBac2M"></xs:element>
+   <xs:element name="typeBac" type="typeBacM"></xs:element>
    
 
 
@@ -358,7 +362,6 @@
    <xs:element name="bac2">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="typeBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="dateObtnBac2" minOccurs="1" maxOccurs="1"></xs:element>
@@ -368,22 +371,22 @@
             <xs:element ref="montionBac2" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="idCondidat" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idBac2" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
 
 
-      <!-- diplomeBbac+2 -->
+      <!-- diplomeBbac -->
    </xs:element>
    <xs:element name="diplomeBac">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="bac2" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="bac" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
 <xs:element name="bac">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="idBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="nomBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="typeBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="dateObtnBac" minOccurs="1" maxOccurs="1"></xs:element>
@@ -393,13 +396,13 @@
             <xs:element ref="montionBac" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="idCondidat" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="idBac" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
 
    </xs:element>
 
 <!-- ######################################################################################################################## -->
 <!-- CONCOURs -->
-<xs:element name="idConcours" type="xs:ID"></xs:element>
 <xs:element name="dateCouncour" type="xs:date"></xs:element>
 <xs:element name="condidatConcours" type="condidatConcoursType"></xs:element>
 
@@ -412,29 +415,42 @@
 <xs:element name="concours">
    <xs:complexType>
       <xs:sequence>
-         <xs:element ref="idConcours" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="concour"></xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
+
+<xs:element name="concour">
+   <xs:complexType>
+      <xs:sequence>
          <xs:element ref="dateCouncour" minOccurs="1" maxOccurs="1"></xs:element>
          <xs:element ref="condidatConcours" minOccurs="1" maxOccurs="1"></xs:element>
       </xs:sequence>
+      <xs:attribute name="idConcours" type="xs:ID"></xs:attribute>
    </xs:complexType>
 </xs:element>
 
 <!-- ######################################################################################################################## -->
 <!-- dossier physique -->
-<xs:element name="idDossier" type="xs:ID"></xs:element>
 <xs:element name="pdf-cin" type="xs:boolean"></xs:element>
-<xs:element name="pdf-bacFace1" type="xs:boolean"></xs:element>
-<xs:element name="pdf-bacFace2" type="xs:boolean"></xs:element>
+<xs:element name="pdf-bac" type="xs:boolean"></xs:element>
 <xs:element name="pdf-bac2" type="xs:boolean"></xs:element>
+<xs:element name="dossiers-physiques">
+   <xs:complexType>
+      <xs:sequence>
+         <xs:element ref="dossier-physique"></xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:element>
 <xs:element name="dossier-physique">
    <xs:complexType>
       <xs:sequence>
-         <xs:element ref="idDossier" minOccurs="1" maxOccurs="1"></xs:element>
          <xs:element ref="pdf-cin" minOccurs="1" maxOccurs="1"></xs:element>
-         <xs:element ref="pdf-bacFace1" minOccurs="1" maxOccurs="1"></xs:element>
-         <xs:element ref="pdf-bacFace2" minOccurs="1" maxOccurs="1"></xs:element>
+         <xs:element ref="pdf-bac" minOccurs="1" maxOccurs="1"></xs:element>
          <xs:element ref="pdf-bac2" minOccurs="1" maxOccurs="1"></xs:element>
       </xs:sequence>
+      <xs:attribute name="idDossier" type="xs:ID"></xs:attribute>
+      <xs:attribute name="idCondidat" type="xs:IDREF"></xs:attribute>
    </xs:complexType>
 </xs:element>
 

@@ -7,41 +7,61 @@
       <role>admin</role>
    </adminApp>
    <adminEcole>
-      <directeur-generale>
+      <directeur-generale idDirecteur-generale="DG-01">
          <nom>directeur generale 1 nom</nom>
          <prenom>directeur generale 1 prenom</prenom>
+         <tele>0664736273</tele>
          <cin>JH209378</cin>
          <email>direcGen1@gmail.com</email>
          <password>12345678</password>
       </directeur-generale>
-      <directeur-adjoint>
+      <directeur-adjoint idDirecteur-adjoint="DA-01">
          <nom>directeur adjoint 1 nom</nom>
          <prenom>directeur adjoint 1 prenom</prenom>
+         <tele>0635261890</tele>
          <cin>JH235378</cin>
          <email>direcAd1@gmail.com</email>
          <password>12345678</password>
       </directeur-adjoint>
-      <chef-departement>
+      <chef-departement idChef-departement="CD-01">
          <nom>chef departement 1 nom</nom>
          <prenom>chef departement 1 prenom</prenom>
+         <tele>0634517483</tele>
          <cin>JH225378</cin>
          <email>chefDep1@gmail.com</email>
          <password>12345678</password>
       </chef-departement>
-      <chef-scolarite>
+      <chef-scolarite idChef-scolarite="CS-01">
          <nom>chef scolarite 1 nom</nom>
          <prenom>chef scolarite 1 prenom</prenom>
+         <tele>0637153419</tele>
          <cin>JH225098</cin>
          <email>chefSco1@gmail.com</email>
          <password>12345678</password>
       </chef-scolarite>
    </adminEcole>
    <filieres>
+      <filiere refDepatement="DEP-01" idFiliere="FIL-01">
+         <nomFiliere></nomFiliere>
+      </filiere>
 
    </filieres>
-   <licences></licences>
-   <modules></modules>
-   <departements></departements>
+   <licences>
+      <licence refDepartement="DEP-01" refFiliere="FIL-01" idLicence="LIC-01">
+         <nomLicence></nomLicence>
+      </licence>
+   </licences>
+   <modules>
+      <module refFiliere="FIL-01" idModule="MOD-01">
+         <nomModule></nomModule>
+         <nbreHeure>PT20H</nbreHeure>
+      </module>
+   </modules>
+   <departements>
+      <departement refChefDepartement="CD-01" idDepartement="DEP-01">
+         <nomDepartement></nomDepartement>
+      </departement>
+   </departements>
    <condidats>
       <nom></nom>
       <prenom></prenom>
@@ -49,12 +69,52 @@
       <email></email>
       <password></password>
    </condidats>
-   <matieres></matieres>
+   <matieres>
+      <matiere idMatiere="MAT-01"   refModule="MOD-01">
+         <nomMatiere></nomMatiere>
+      </matiere>
+   </matieres>
    <preinscription-1></preinscription-1>
    <preinscription-2></preinscription-2>
-   <diplomeBac2></diplomeBac2>
-   <diplomeBac></diplomeBac>
-   <concours></concours>
-   <dossier-physique></dossier-physique>
+   <diplomeBac2>
+      <bac2  idBac2="BAC2-01" idCondidat="COND-01" >
+         <nomBac2></nomBac2>
+         <typeBac2>DTS</typeBac2>
+         <dateObtnBac2>2023-06-05</dateObtnBac2>
+         <region></region>
+         <academie></academie>
+         <noteBac2>17.23</noteBac2>
+         <montionBac2>tres bien</montionBac2>
+      </bac2>
+   </diplomeBac2>
+   <diplomeBac>
+      <bac idCondidat="COND-01" idBac="BAC-01">
+         <nomBac></nomBac>
+         <typeBac >PC</typeBac>
+         <dateObtnBac>2020-07-12</dateObtnBac>
+         <region></region>
+         <academie></academie>
+         <noteBac>16.34</noteBac>
+         <montionBac >bien</montionBac>
+   
+      </bac>
+   </diplomeBac>
+   <concours>
+      <concour idConcours="CNC-01">
+         <dateCouncour>2023-09-30</dateCouncour>
+         <condidatConcours>
+            <idCondidat>COND-01</idCondidat>
+         </condidatConcours>
+      </concour>
+   </concours>
+   <dossiers-physiques>
+      <dossier-physique idDossier="DOS-01" idCondidat="COND-01">
+         <pdf-cin>true</pdf-cin>
+         <pdf-bac>true</pdf-bac>
+         <pdf-bac2>true</pdf-bac2>
+
+
+      </dossier-physique>
+   </dossiers-physiques>
 
 </est-safi>
