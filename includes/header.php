@@ -44,6 +44,8 @@
                      Admin
                   <?php elseif ($userRole == 'directeur-generale') : ?>
                      Director General
+                  <?php elseif ($userRole == 'condidat') : ?>
+                     condidat
                   <?php elseif(!isset($_SESSION['email']) || !isset($_SESSION['userRole'])):?>
                      Connexion
                   <?php else : ?>
