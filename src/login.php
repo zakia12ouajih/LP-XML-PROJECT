@@ -36,6 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 
    if (!$authenticated) {
+      foreach ($xml->condidats->children() as $condidat) {
+         if ($condidat->email == $email && $password == $condidat->password) {
+            $_SESSION['email'] = $email;
+            $_SESSION['userRole'] = (string)$condidat->role; // Save user role in session
+            $authenticated = true;
+            break;
+         }
+      }
+   }
+
+
+
+   if (!$authenticated) {
       $_SESSION['error_message'] = "Invalid username or password.";
    }
 
@@ -48,6 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          case 'directeur-generale':
             header("Location: /LP-XML-PROJECT/public/directeur-adjoint/homeAD"); // Replace with the actual path
             break;
+         case 'condidat':
+            header("Location: /LP-XML-PROJECT/public/condidat/homecondidat"); // Replace with the actual path
+            break;
+         
             // Add cases for other roles as needed
          default:
             header("Location: /LP-XML-PROJECT/public/login");

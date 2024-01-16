@@ -46,6 +46,10 @@ switch ($request) {
          require dirname(__DIR__) . '/public/pages/directeur-adjoint/homeDA.php';
          break;
 
+      case '/LP-XML-PROJECT/public/condidat/homecondidat':
+         require dirname(__DIR__) . '/public/pages/condidat/homecondidat.php';
+         break;
+
    default:
       http_response_code(404);
       require dirname(__DIR__) . '/public/pages/404.php';
