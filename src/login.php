@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $email = $_POST["email"];
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    foreach ($xml->adminApp as $admin) {
       if ($admin->email == $email && $password == $admin->password) {
          $_SESSION['email'] = $email;
-         $userRole = (string)$admin->role;
+         $_SESSION['userRole'] = (string)$admin->role; // Save user role in session
          $authenticated = true;
          break;
       }
@@ -29,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       foreach ($xml->adminEcole->children() as $user) {
          if ($user->email == $email && $password == $user->password) {
             $_SESSION['email'] = $email;
-            $userRole = (string)$user->role;
+            $_SESSION['userRole'] = (string)$user->role; // Save user role in session
             $authenticated = true;
             break;
          }
@@ -42,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    // Check user role and redirect accordingly
    if ($authenticated) {
-      switch ($userRole) {
+      switch ($_SESSION['userRole']) {
          case 'admin':
             header("Location: /LP-XML-PROJECT/public/admin/homeAdmin");
             break;
