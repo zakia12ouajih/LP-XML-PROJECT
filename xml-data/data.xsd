@@ -33,7 +33,6 @@
    <xs:element name="cne" type="cneType"/>
 
 
-   <!-- Simple types -->
    <xs:simpleType name="teleType">
    <xs:restriction base="xs:string">
       <!-- Define a pattern for Morocco phone number -->
@@ -223,6 +222,7 @@
    <xs:element name="condidat">
       <xs:complexType>
          <xs:sequence>
+<<<<<<< HEAD
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="tele" minOccurs="1" maxOccurs="1"/>
@@ -230,6 +230,17 @@
             <xs:element ref="cne" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+=======
+            <xs:element name="idcondidat" type="xs:ID"></xs:element>
+            <xs:element ref="nom"/>
+            <xs:element ref="prenom"/>
+            <xs:element name="date_naissance" type="xs:date"/>
+            <xs:element ref="tele"/>
+            <xs:element ref="cin"/>
+            <xs:element ref="cne"/>
+            <xs:element ref="email"></xs:element>
+            <xs:element ref="password"></xs:element>
+>>>>>>> 9bddf367c1ecfdd4efcfdbcf610674a53815ee96
          </xs:sequence>
       </xs:complexType>
    </xs:element>
@@ -433,13 +444,37 @@
          <xs:element ref="pdf-bacFace1" minOccurs="1" maxOccurs="1"></xs:element>
          <xs:element ref="pdf-bacFace2" minOccurs="1" maxOccurs="1"></xs:element>
          <xs:element ref="pdf-bac2" minOccurs="1" maxOccurs="1"></xs:element>
-
-
       </xs:sequence>
    </xs:complexType>
 </xs:element>
 
+      <!-- ######################################################################################################################## -->
+   <!-- preinscription-1 -->
+      <xs:element name="preinscription-1">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="status" type="xs:boolean"/>
+            <xs:element name="datePreinscription" type="xs:date"/>
+         </xs:sequence>  
+         <xs:attribute name="idBac" type="xs:IDREF"></xs:attribute>
+         <xs:attribute name="idBac2" type="xs:IDREF"></xs:attribute>
+         <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
+      </xs:complexType>  
+      </xs:element>  
 
+      <!-- ######################################################################################################################## -->
+   <!-- preinscription-2 -->
+      <xs:element name="preinscription-2">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="status" type="xs:boolean"/>
+            <xs:element name="datePhase2" type="xs:date"/>
+         </xs:sequence>
+         <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
+         <xs:attribute name="idDossier" type="xs:IDREF"></xs:attribute>
+
+      </xs:complexType>  
+      </xs:element>        
 
 
    
