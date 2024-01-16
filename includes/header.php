@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +13,12 @@
 <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">
-         <img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="" width="80">
+         <img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
+      
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">

@@ -37,6 +37,14 @@ switch ($request) {
    case '/LP-XML-PROJECT/public/logout':
          require dirname(__DIR__) . '/src/logout.php';
          break;
+   
+      case '/LP-XML-PROJECT/public/admin/homeAdmin':
+         require dirname(__DIR__) . '/public/pages/admin/homeAdmin.php';
+         break;
+      
+      case '/LP-XML-PROJECT/public/directeur-adjoint/homeAD':
+         require dirname(__DIR__) . '/public/pages/directeur-adjoint/homeDA.php';
+         break;
 
    default:
       http_response_code(404);

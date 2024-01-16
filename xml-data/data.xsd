@@ -118,6 +118,7 @@
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1" ></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="role"></xs:element>
          </xs:sequence>
          <xs:attribute name="idDirecteur-generale" type="xs:ID" use="required"></xs:attribute>
 
@@ -134,6 +135,7 @@
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="role"></xs:element>
          </xs:sequence>
          <xs:attribute name="idDirecteur-adjoint" type="xs:ID" use="required"></xs:attribute>
 
@@ -150,6 +152,7 @@
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="role"></xs:element>
          </xs:sequence>
          <xs:attribute name="idChef-departement" type="xs:ID" use="required"></xs:attribute>
 
@@ -166,6 +169,7 @@
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="role"></xs:element>
          </xs:sequence>
          <xs:attribute name="idChef-scolarite" type="xs:ID" use="required"></xs:attribute>
 
