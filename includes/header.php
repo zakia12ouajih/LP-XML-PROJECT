@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+session_start();
+
+      $userEmail = '';
+      $userRole = '';
+// Check if the user is logged in and the user role is set
+if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
+   // $userEmail = $_SESSION['email'];
+   $userRole = $_SESSION['userRole'];
+}
+
+// Access user information
+// Access other user information if needed
+?>
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +28,26 @@
 <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">
-         <img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">
+         <?php
+         if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
+         // $userEmail = $_SESSION['email'];
+         echo '<img src="../../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
+      
+         }else{
+            echo '<img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';         }
+         ?>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
-      
+
+      <?php if ($userRole == 'admin') : ?>
+         <div>Welcome Admin!</div>
+      <?php elseif ($userRole == 'directeur-generale') : ?>
+         <div>Welcome Director General!</div>
+      <?php else : ?>
+         <!-- Add more cases for other roles -->
+      <?php endif; ?>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
