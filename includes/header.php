@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-session_start();
-
-      $userEmail = '';
-      $userRole = '';
-// Check if the user is logged in and the user role is set
-if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
-   // $userEmail = $_SESSION['email'];
-   $userRole = $_SESSION['userRole'];
-}
-
-
-
-
-// Access user information
-// Access other user information if needed
-?>
-
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,52 +11,62 @@ if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
 </head>
 
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-md navbar-light bg-light">
       <a class="navbar-brand" href="#">
          <?php
          if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
-         // $userEmail = $_SESSION['email'];
-         echo '<img src="../../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
-      
-         }else{
-            echo '<img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';         }
+            echo '<img src="../../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
+         } else {
+            echo '<img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
+         }
          ?>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
 
-      <?php if ($userRole == 'admin') : ?>
-         <div>Welcome Admin!</div>
-      <?php elseif ($userRole == 'directeur-generale') : ?>
-         <div>Welcome Director General!</div>
-      <?php else : ?>
-         <!-- Add more cases for other roles -->
-      <?php endif; ?>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                <a class="nav-link" href="/LP-XML-PROJECT/public/home">Home</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/LP-XML-PROJECT/public/xmlData">xml data</a>
+            <li class="nav-item active">
+               <?php if ($userRole == 'admin') : ?>
+               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/administration">Administration</a>
+               <?php endif;?>
             </li>
+         </ul>
+
+         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Connexion
+                  <?php if ($userRole == 'admin') : ?>
+                     Admin
+                  <?php elseif ($userRole == 'directeur-generale') : ?>
+                     Director General
+                  <?php elseif(!isset($_SESSION['email']) || !isset($_SESSION['userRole'])):?>
+                     Connexion
+                  <?php else : ?>
+                     <!-- Add more cases for other roles -->
+                  <?php endif; ?>
                </a>
+
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/LP-XML-PROJECT/public/login">Login</a>
-                  <!-- <a class="dropdown-item" href="/LP-XML-PROJECT/public/register">Register</a> -->
-                  <a class="dropdown-item" href="/LP-XML-PROJECT/public/logout">LogOut</a>
+                  <?php
+                  if (!isset($_SESSION['email']) || !isset($_SESSION['userRole'])) {
+                     echo '<a class="dropdown-item" href="/LP-XML-PROJECT/public/login">Login</a>';
+                  }
+                  ?>
+                  <?php
+                  if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
+                     echo '<a class="dropdown-item" href="/LP-XML-PROJECT/public/logout">Log out</a>';
+                  }
+                  ?>
                </div>
             </li>
-
          </ul>
       </div>
    </nav>
-
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 $xmlFile = '../xml-data/data.xml';
-$xslFile = '../xslt/data.xslt';
+$xslFile = '../xslt/administration.xslt';
 
 $xml = new DOMDocument;
 $xml->load($xmlFile);

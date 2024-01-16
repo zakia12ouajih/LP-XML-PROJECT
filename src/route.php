@@ -6,9 +6,7 @@ switch ($request) {
    case '/LP-XML-PROJECT/public/':
       require dirname(__DIR__) . '/public/pages/Home.php';
       break;
-   case '/LP-XML-PROJECT/public/home-test':
-      require dirname(__DIR__) . '/public/pages/Home2.php';
-      break;
+   
 
    case '/LP-XML-PROJECT/public/home':
       require dirname(__DIR__) . '/public/pages/Home.php';
@@ -45,6 +43,11 @@ switch ($request) {
       case '/LP-XML-PROJECT/public/directeur-adjoint/homeAD':
          require dirname(__DIR__) . '/public/pages/directeur-adjoint/homeDA.php';
          break;
+
+      case '/LP-XML-PROJECT/public/admin/homeAdmin/administration':
+      require dirname(__DIR__) . '/public/pages/data.php';
+      break;
+
 
    default:
       http_response_code(404);

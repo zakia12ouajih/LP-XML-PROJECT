@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+session_start();
+
+
+$userRole = '';
+// Check if the user is logged in and the user role is set
+if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
+   // $userEmail = $_SESSION['email'];
+   $userRole = $_SESSION['userRole'];
+}
+
+
+
+
+// Access user information
+// Access other user information if needed
+?>
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +32,13 @@
 
 <body class="container">
    <?php include('../includes/header.php'); ?>
+   <?php
+   if (!isset($_SESSION['email']) || !isset($_SESSION['userRole'])) {
+      // header("Location: /LP-XML-PROJECT/public/");
+   }
+   ?>
 
-   <h1>Welcome to XML Project</h1>
+   
    <?php include('../src/index.php'); ?>
 
 
