@@ -39,6 +39,8 @@
          <xs:enumeration value="directeur-generale"></xs:enumeration>
          <xs:enumeration value="chef-departement"></xs:enumeration>
          <xs:enumeration value="chef-scolarite"></xs:enumeration>
+         <xs:enumeration value="condidat"></xs:enumeration>
+
       </xs:restriction>
    </xs:simpleType>
 
@@ -242,6 +244,7 @@
             <xs:element ref="cne" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="role" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
          <xs:attribute name="idcondidat" type="xs:ID"></xs:attribute>
       </xs:complexType>
