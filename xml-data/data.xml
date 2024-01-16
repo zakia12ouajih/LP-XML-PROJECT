@@ -67,19 +67,34 @@
       </departement>
    </departements>
    <condidats>
-      <nom></nom>
-      <prenom></prenom>
-      <cin></cin>
-      <email></email>
-      <password></password>
+      <condidat idcondidat="COND-01">
+         <nom></nom>
+         <prenom></prenom>
+         <date_naissance>2002-12-01</date_naissance>
+         <tele>0687930274</tele>
+         <cin>SH936294</cin>
+         <cne>G138377743</cne>
+         <email>user@gmail.com</email>
+         <password>12345678</password>
+      </condidat>
    </condidats>
    <matieres>
       <matiere idMatiere="MAT-01"   refModule="MOD-01">
          <nomMatiere></nomMatiere>
       </matiere>
    </matieres>
-   <preinscription-1></preinscription-1>
-   <preinscription-2></preinscription-2>
+   <preinscriptions-1>
+      <preinscription-1 idpreinscription-1="PREINS-01" idBac="BAC-01" idBac2="BAC2-01" idLicence="LIC-01">
+         <status>true</status>
+         <datePreinscription>2023-09-10</datePreinscription>
+      </preinscription-1>
+   </preinscriptions-1>
+   <preinscriptions-2>
+      <preinscription-2 idpreinscription-2="PREINS-02" idLicence="LIC-01" idDossier="DOS-01">
+         <status>true</status>
+         <datePhase2>2023-09-15</datePhase2>
+      </preinscription-2>
+   </preinscriptions-2>   
    <diplomeBac2>
       <bac2  idBac2="BAC2-01" idCondidat="COND-01" >
          <nomBac2></nomBac2>

@@ -13,8 +13,8 @@
             <xs:element ref="departements"></xs:element>
             <xs:element ref="condidats"></xs:element>
             <xs:element ref="matieres"></xs:element>
-            <xs:element ref="preinscription-1"></xs:element>
-            <xs:element ref="preinscription-2"></xs:element>
+            <xs:element ref="preinscriptions-1"></xs:element>
+            <xs:element ref="preinscriptions-2"></xs:element>
             <xs:element ref="diplomeBac2"></xs:element>
             <xs:element ref="diplomeBac"></xs:element>
             <xs:element ref="concours"></xs:element>
@@ -234,7 +234,6 @@
    <xs:element name="condidat">
       <xs:complexType>
          <xs:sequence>
-            <xs:element name="idcondidat" type="xs:ID"></xs:element>
             <xs:element ref="nom" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="prenom" minOccurs="1" maxOccurs="1"/>
             <xs:element name="date_naissance" type="xs:date"/>
@@ -244,6 +243,7 @@
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
+         <xs:attribute name="idcondidat" type="xs:ID"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -460,30 +460,45 @@
 
       <!-- ######################################################################################################################## -->
    <!-- preinscription-1 -->
+      <xs:element name="preinscriptions-1">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element ref="preinscription-1"></xs:element>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="preinscription-1">
-      <xs:complexType>
-         <xs:sequence>
-            <xs:element name="status" type="xs:boolean"/>
-            <xs:element name="datePreinscription" type="xs:date"/>
-         </xs:sequence>  
-         <xs:attribute name="idBac" type="xs:IDREF"></xs:attribute>
-         <xs:attribute name="idBac2" type="xs:IDREF"></xs:attribute>
-         <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
-      </xs:complexType>  
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="status" type="xs:boolean"/>
+               <xs:element name="datePreinscription" type="xs:date"/>
+            </xs:sequence>  
+            <xs:attribute name="idBac" type="xs:IDREF"></xs:attribute>
+            <xs:attribute name="idBac2" type="xs:IDREF"></xs:attribute>
+            <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
+            <xs:attribute name="idpreinscription-1" type="xs:ID"></xs:attribute>
+            </xs:complexType>  
       </xs:element>  
 
       <!-- ######################################################################################################################## -->
    <!-- preinscription-2 -->
+      <xs:element name="preinscriptions-2">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element ref="preinscription-2"></xs:element>
+            </xs:sequence>
+         </xs:complexType>    
+      </xs:element>       
       <xs:element name="preinscription-2">
-      <xs:complexType>
-         <xs:sequence>
-            <xs:element name="status" type="xs:boolean"/>
-            <xs:element name="datePhase2" type="xs:date"/>
-         </xs:sequence>
-         <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
-         <xs:attribute name="idDossier" type="xs:IDREF"></xs:attribute>
-
-      </xs:complexType>  
+         <xs:complexType>   
+            <xs:sequence>   
+               <xs:element name="status" type="xs:boolean"/>
+               <xs:element name="datePhase2" type="xs:date"/>
+            </xs:sequence>   
+            <xs:attribute name="idLicence" type="xs:IDREF"></xs:attribute>
+            <xs:attribute name="idDossier" type="xs:IDREF"></xs:attribute>
+            <xs:attribute name="idpreinscription-2" type="xs:ID"></xs:attribute>
+         </xs:complexType>  
       </xs:element>        
 
 
