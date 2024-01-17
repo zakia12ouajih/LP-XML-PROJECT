@@ -52,6 +52,10 @@ switch ($request) {
          require dirname(__DIR__) . '/public/pages/condidat/homecondidat.php';
          break;
 
+      case '/LP-XML-PROJECT/public/condidat/preinscription1':
+         require dirname(__DIR__) . '/public/pages/condidat/preinscription1.php';
+         break;   
+         
    default:
       http_response_code(404);
       require dirname(__DIR__) . '/public/pages/404.php';
