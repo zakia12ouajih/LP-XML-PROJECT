@@ -28,14 +28,26 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-               <a class="nav-link" href="/LP-XML-PROJECT/public/home">Home</a>
+               <?php if ($userRole == 'admin') : ?>
+               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin">Home</a>
+               <?php elseif (!isset($_SESSION['userRole'])):?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/home">Home</a>
+               <?php endif;?>
             </li>
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
                <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/administration">Administration</a>
                <?php endif;?>
             </li>
+            <li class="nav-item active">
+               <?php if ($userRole == 'admin') : ?>
+               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/filiere">Filiere</a>
+               <?php endif;?>
+            </li>
          </ul>
+         
+         
+         
 
          <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">

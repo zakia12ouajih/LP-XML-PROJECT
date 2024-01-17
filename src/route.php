@@ -45,8 +45,19 @@ switch ($request) {
          break;
 
       case '/LP-XML-PROJECT/public/admin/homeAdmin/administration':
-      require dirname(__DIR__) . '/public/pages/data.php';
+      require dirname(__DIR__) . '/public/pages/admin/administration.php';
       break;
+
+   case '/LP-XML-PROJECT/public/admin/homeAdmin/administration/updateDG':
+      
+      require dirname(__DIR__) . "/src/update.php";
+      break;
+
+   case '/LP-XML-PROJECT/public/admin/homeAdmin/filiere':
+      require dirname(__DIR__) . '/public/pages/admin/filiere.php';
+      break;
+
+
 
       case '/LP-XML-PROJECT/public/condidat/homecondidat':
          require dirname(__DIR__) . '/public/pages/condidat/homecondidat.php';

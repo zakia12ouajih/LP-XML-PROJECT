@@ -8,8 +8,8 @@
    </adminApp>
    <adminEcole>
       <directeur-generale idDirecteur-generale="DG-01">
-         <nom>directeur generale 1 nom</nom>
-         <prenom>directeur generale 1 prenom</prenom>
+         <nom>directeur generale 1 nom2</nom>
+         <prenom>directeur generale 1 prenom1</prenom>
          <tele>0664736273</tele>
          <cin>JH209378</cin>
          <email>direcGen1@gmail.com</email>
@@ -17,8 +17,8 @@
          <role>directeur-generale</role>
       </directeur-generale>
       <directeur-adjoint idDirecteur-adjoint="DA-01">
-         <nom>directeur adjoint 1 nom</nom>
-         <prenom>directeur adjoint 1 prenom</prenom>
+         <nom>directeur adjoint 1 nom1</nom>
+         <prenom>directeur adjoint 1 prenom1</prenom>
          <tele>0635261890</tele>
          <cin>JH235378</cin>
          <email>direcAd1@gmail.com</email>
@@ -26,8 +26,8 @@
          <role>directeur-adjoint</role>
       </directeur-adjoint>
       <chef-departement idChef-departement="CD-01">
-         <nom>chef departement 1 nom</nom>
-         <prenom>chef departement 1 prenom</prenom>
+         <nom>chef departement 1 nom1</nom>
+         <prenom>chef departement 1 prenom1</prenom>
          <tele>0634517483</tele>
          <cin>JH225378</cin>
          <email>chefDep1@gmail.com</email>
@@ -35,8 +35,8 @@
          <role>chef-departement</role>
       </chef-departement>
       <chef-scolarite idChef-scolarite="CS-01">
-         <nom>chef scolarite 1 nom</nom>
-         <prenom>chef scolarite 1 prenom</prenom>
+         <nom>chef scolarite 1 nom1</nom>
+         <prenom>chef scolarite 1 prenom1</prenom>
          <tele>0637153419</tele>
          <cin>JH225098</cin>
          <email>chefSco1@gmail.com</email>
@@ -46,30 +46,36 @@
    </adminEcole>
    <filieres>
       <filiere refDepatement="DEP-01" idFiliere="FIL-01">
-         <nomFiliere></nomFiliere>
+         <nomFiliere>filiere 1</nomFiliere>
+      </filiere>
+      <filiere refDepatement="DEP-02" idFiliere="FIL-02">
+         <nomFiliere>filiere 2</nomFiliere>
+      </filiere>
+      <filiere refDepatement="DEP-03" idFiliere="FIL-03">
+         <nomFiliere>filiere 2</nomFiliere>
       </filiere>
 
    </filieres>
    <licences>
       <licence refDepartement="DEP-01" refFiliere="FIL-01" idLicence="LIC-01">
-         <nomLicence></nomLicence>
+         <nomLicence/>
       </licence>
    </licences>
    <modules>
       <module refFiliere="FIL-01" idModule="MOD-01">
-         <nomModule></nomModule>
+         <nomModule/>
          <nbreHeure>PT20H</nbreHeure>
       </module>
    </modules>
    <departements>
       <departement refChefDepartement="CD-01" idDepartement="DEP-01">
-         <nomDepartement></nomDepartement>
+         <nomDepartement/>
       </departement>
    </departements>
    <condidats>
       <condidat idcondidat="COND-01">
-         <nom></nom>
-         <prenom></prenom>
+         <nom/>
+         <prenom/>
          <date_naissance>2002-12-01</date_naissance>
          <tele>0687930274</tele>
          <cin>SH936294</cin>
@@ -80,8 +86,8 @@
       </condidat>
    </condidats>
    <matieres>
-      <matiere idMatiere="MAT-01"   refModule="MOD-01">
-         <nomMatiere></nomMatiere>
+      <matiere idMatiere="MAT-01" refModule="MOD-01">
+         <nomMatiere/>
       </matiere>
    </matieres>
    <preinscriptions-1>
@@ -97,25 +103,25 @@
       </preinscription-2>
    </preinscriptions-2>   
    <diplomeBac2>
-      <bac2  idBac2="BAC2-01" idCondidat="COND-01" >
-         <nomBac2></nomBac2>
+      <bac2 idBac2="BAC2-01" idCondidat="COND-01">
+         <nomBac2/>
          <typeBac2>DTS</typeBac2>
          <dateObtnBac2>2023-06-05</dateObtnBac2>
-         <region></region>
-         <academie></academie>
+         <region/>
+         <academie/>
          <noteBac2>17.23</noteBac2>
          <montionBac2>tres bien</montionBac2>
       </bac2>
    </diplomeBac2>
    <diplomeBac>
       <bac idCondidat="COND-01" idBac="BAC-01">
-         <nomBac></nomBac>
-         <typeBac >PC</typeBac>
+         <nomBac/>
+         <typeBac>PC</typeBac>
          <dateObtnBac>2020-07-12</dateObtnBac>
-         <region></region>
-         <academie></academie>
+         <region/>
+         <academie/>
          <noteBac>16.34</noteBac>
-         <montionBac >bien</montionBac>
+         <montionBac>bien</montionBac>
    
       </bac>
    </diplomeBac>

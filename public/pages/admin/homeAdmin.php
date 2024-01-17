@@ -16,6 +16,9 @@ if (!isset($_SESSION['email'])) {
    exit();
 }
 
+   echo $_SERVER['REQUEST_URI'];
+
+
 // Get the user role from the session
 $userRole = $_SESSION['userRole'];
 
