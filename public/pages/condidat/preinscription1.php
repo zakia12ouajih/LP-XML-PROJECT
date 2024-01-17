@@ -11,70 +11,71 @@
 
 <body>
    <div class="container">
-      <h2>Prienscription 1</h2>
+      <h2>Information Personnelle</h2>
 
       <form action="/LP-XML-PROJECT/public/register-process" method="POST" class="row">
 
          <!-- Left Part -->
          <div class="col-md-6">
             <?php
-            $leftFields = array("nom" => "Nom", "prenom" => "Prénom", "date_naissance" => "Date de Naissance", "tele" => "Téléphone");
+            $leftFields = array(
+               "nom" => "Nom",
+               "prenom" => "Prénom",
+               "date_naissance" => "Date de Naissance",
+               "tele" => "Téléphone"
+            );
 
             foreach ($leftFields as $fieldName => $fieldLabel) {
                echo '<div class="form-group">
-                        <label for="' . $fieldName . '">' . $fieldLabel . ':</label>
-                        <input type="text" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldName . '" required>
-                     </div>';
+                  <label for="' . $fieldName . '">' . $fieldLabel . ':</label>';
+               // Check if the field is a date field
+               if ($fieldName === "date_naissance") {
+                  echo '<input type="date" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" required>';
+               } else {
+                  echo '<input type="text" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldLabel . '" required>';
+               }
+               echo '</div>';
             }
             ?>
-         </div>
-
-         <!-- Right Part -->
-         <div class="col-md-6">
-            <?php
-            $rightFields1 = array("cin" => "CIN", "cne" => "CNE", "password" => "Mot de Passe", "email" => "Email");
-
-            foreach ($rightFields1 as $fieldName => $fieldLabel) {
-               echo '<div class="form-group">
-                        <label for="' . $fieldName . '">' . $fieldLabel . ':</label>
-                        <input type="' . $fieldName . '" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldName . '" required>
-                     </div>';
-            }
-            ?>
-         </div>
-         <hr>
-
-         <!-- Left Part -->
-         <div class="col-md-6">
-            <?php
-            $leftFields2 = array("status" => "Status", "datePreinscription" => "Date de preinscription", "idBac" => "Bac");
-
-            foreach ($leftFields2 as $fieldName => $fieldLabel) {
-               echo '<div class="form-group">
-                        <label for="' . $fieldName . '">' . $fieldLabel . ':</label>
-                        <input type="' . $fieldName . '" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldName . '" required>
-                     </div>';
-            }
-            ?>
-         </div>
-
-         <!-- Right Part -->
-         <div class="col-md-6">
-            <?php
-            $rightFields2 = array("idBac2" => "Bac+2", "idLicence" => "Licence");
-
-            foreach ($rightFields2 as $fieldName => $fieldLabel) {
-               echo '<div class="form-group">
-                        <label for="' . $fieldName . '">' . $fieldLabel . ':</label>
-                        <input type="' . $fieldName . '" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldName . '" required>
-                     </div>';
-            }
-            ?>
-            <div class="form-group col-12">
+            <div class="form-group">
                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
          </div>
+
+         <!-- Right Part -->
+         <div class="col-md-6">
+            <?php
+            $rightFields1 = array(
+               "cin" => "CIN",
+               "cne" => "CNE",
+               "email" => "Email",
+               "password" => "Mot de Passe"
+            );
+
+            foreach ($rightFields1 as $fieldName => $fieldLabel) {
+               echo '<div class="form-group">
+                  <label for="' . $fieldName . '">' . $fieldLabel . ':</label>
+                  <input type="' . $fieldName . '" name="' . $fieldName . '" class="form-control" id="' . $fieldName . '" placeholder="' . $fieldName . '" required>
+               </div>';
+            }
+            ?>
+         </div>
+
+         <!-- ... (other parts of the form) ... -->
+
+
       </form>
+
+
+
+      <!-- Left Part -->
+
+
+
+
+
+
+
    </div>
 
    <!-- Include Bootstrap JS and Popper.js -->

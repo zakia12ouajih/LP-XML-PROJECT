@@ -20,9 +20,18 @@ switch ($request) {
    //    require dirname(__DIR__) . '/public/pages/registerForm.php';
    //    break;   
 
-   // case '/LP-XML-PROJECT/public/register-process':
-   //       require dirname(__DIR__) . '/src/register.php';
-   //       break;
+   case '/LP-XML-PROJECT/public/register-process':
+         require dirname(__DIR__) . '/src/register.php';
+         break;
+   case '/LP-XML-PROJECT/public/register-process2':
+         require dirname(__DIR__) . '/src/register2.php';
+         break;
+   case '/LP-XML-PROJECT/public/register-process3':
+      require dirname(__DIR__) . '/src/register3.php';
+      break;
+   case '/LP-XML-PROJECT/public/register-process4':
+      require dirname(__DIR__) . '/src/register4.php';
+      break;
 
    case '/LP-XML-PROJECT/public/login':
          require dirname(__DIR__) . '/public/pages/loginForm.php';
@@ -49,8 +58,11 @@ switch ($request) {
       break;
 
    case '/LP-XML-PROJECT/public/admin/homeAdmin/administration/updateDG':
-      
       require dirname(__DIR__) . "/src/update.php";
+      break;
+   
+   case '/LP-XML-PROJECT/public/admin/homeAdmin/administration/deleteDG':
+      require dirname(__DIR__) . '/src/delete.php';
       break;
 
    case '/LP-XML-PROJECT/public/admin/homeAdmin/filiere':
@@ -66,6 +78,16 @@ switch ($request) {
       case '/LP-XML-PROJECT/public/condidat/preinscription1':
          require dirname(__DIR__) . '/public/pages/condidat/preinscription1.php';
          break;   
+      case '/LP-XML-PROJECT/public/condidat/preinscription2':
+         require dirname(__DIR__) . '/public/pages/condidat/preinscriptionpart2.php';
+         break;
+         
+      case '/LP-XML-PROJECT/public/condidat/preinscription3':
+         require dirname(__DIR__) . '/public/pages/condidat/preinscriptionpart3.php';
+         break;
+      case '/LP-XML-PROJECT/public/condidat/preinscription4':
+         require dirname(__DIR__) . '/public/pages/condidat/preinscription4.php';
+         break;
          
    default:
       http_response_code(404);

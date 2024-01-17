@@ -16,6 +16,8 @@
          <password>12345678</password>
          <role>directeur-generale</role>
       </directeur-generale>
+      
+      
       <directeur-adjoint idDirecteur-adjoint="DA-01">
          <nom>directeur adjoint 1 nom1</nom>
          <prenom>directeur adjoint 1 prenom1</prenom>
@@ -73,29 +75,66 @@
       </departement>
    </departements>
    <condidats>
-      <condidat idcondidat="COND-01">
-         <nom/>
-         <prenom/>
+      <condidat cne="G138377743">
+         <nom>con1</nom>
+         <prenom>pre con1</prenom>
          <date_naissance>2002-12-01</date_naissance>
          <tele>0687930274</tele>
          <cin>SH936294</cin>
-         <cne>G138377743</cne>
          <email>user@gmail.com</email>
          <password>12345678</password>
          <role>condidat</role>
       </condidat>
-   </condidats>
+   <condidat cne="i123456789">
+      <nom>ouajih</nom>
+      <prenom>zakia</prenom>
+      <date_naissance>2002-07-26</date_naissance>
+      <tele>0612234123</tele>
+      <cin>we238974</cin>
+      <email>z@gmail.com</email>
+      <password>12345678</password>
+      <role>condidat</role>
+   </condidat>
+   <condidat cne="o245617834">
+      <nom>ouajih</nom>
+      <prenom>zakia</prenom>
+      <date_naissance>2024-01-19</date_naissance>
+      <tele>0637128936</tele>
+      <cin>wu647382</cin>
+      <email>z@gmail.com</email>
+      <password>12345678</password>
+      <role>condidat</role>
+   </condidat>
+   <condidat cne="d123456789">
+      <nom>nom1</nom>
+      <prenom>prenom1</prenom>
+      <date_naissance>2024-01-31</date_naissance>
+      <tele>0646241563</tele>
+      <cin>kw435172</cin>
+      <email>a@gmail.com</email>
+      <password>12345678</password>
+      <role>condidat</role>
+   </condidat><condidat cne="k123456789">
+      <nom>aneflous</nom>
+      <prenom>amal</prenom>
+      <date_naissance>2024-01-26</date_naissance>
+      <tele>0624152756</tele>
+      <cin>kj123456</cin>
+      <email>aa@gmail.com</email>
+      <password>12345678</password>
+      <role>condidat</role>
+   </condidat><condidat cne="t123456789"><nom>test8</nom><prenom>test8</prenom><date_naissance>2024-02-02</date_naissance><tele>0987654321</tele><cin>l654321</cin><email>t@gmail.com</email><password>12345678</password><role>condidat</role></condidat><condidat cne="q123456789"><nom>test0</nom><prenom>test0</prenom><date_naissance>1222-12-23</date_naissance><tele>0987654321</tele><cin>qw123456</cin><email>te@gmail.com</email><password>12345678</password><role>condidat</role></condidat><condidat cne="k098765432"><nom>test10</nom><prenom>test10</prenom><date_naissance>2024-01-20</date_naissance><tele>1234567890</tele><cin>lk123456</cin><email>t10@gmail.com</email><password>12345678</password><role>condidat</role></condidat></condidats>
    <matieres>
       <matiere idMatiere="MAT-01" refModule="MOD-01">
          <nomMatiere/>
       </matiere>
    </matieres>
-   <preinscriptions-1>
-      <preinscription-1 idpreinscription-1="PREINS-01" idBac="BAC-01" idBac2="BAC2-01" idLicence="LIC-01">
+   <preinscriptions1>
+      <preinscription1 idpreinscription-1="PREINS-01" idBac="a65a8012f61b44" idBac2="BAC2-01" idLicence="LIC-01">
          <status>true</status>
          <datePreinscription>2023-09-10</datePreinscription>
-      </preinscription-1>
-   </preinscriptions-1>
+      </preinscription1>
+   </preinscriptions1>
    <preinscriptions-2>
       <preinscription-2 idpreinscription-2="PREINS-02" idLicence="LIC-01" idDossier="DOS-01">
          <status>true</status>
@@ -103,38 +142,53 @@
       </preinscription-2>
    </preinscriptions-2>   
    <diplomeBac2>
-      <bac2 idBac2="BAC2-01" idCondidat="COND-01">
-         <nomBac2/>
+      <bac2 idBac2="BAC2-01" cne="G138377743">
          <typeBac2>DTS</typeBac2>
          <dateObtnBac2>2023-06-05</dateObtnBac2>
-         <region/>
-         <academie/>
          <noteBac2>17.23</noteBac2>
          <montionBac2>tres bien</montionBac2>
       </bac2>
+      <bac2 cne="k098765432" idBac2="a65a83713785ea">
+         <typeBac2>DTS</typeBac2>
+         <dateObtnBac2>2024-01-29</dateObtnBac2>
+         <noteBac2>16.98</noteBac2>
+         <montionBac2>bien</montionBac2>
+      </bac2>
    </diplomeBac2>
    <diplomeBac>
-      <bac idCondidat="COND-01" idBac="BAC-01">
-         <nomBac/>
+      <bac cne="G138377743" idBac="a65a8012f61b44">
          <typeBac>PC</typeBac>
-         <dateObtnBac>2020-07-12</dateObtnBac>
-         <region/>
-         <academie/>
-         <noteBac>16.34</noteBac>
-         <montionBac>bien</montionBac>
-   
+         <dateObtnBac>2024-01-27</dateObtnBac>
+         <region>Agadir-Ida-Ou Tanane</region>
+         <academie>Académie Régionale d'Éducation et de Formation Souss-Massa</academie>
+         <noteBac>13.23</noteBac>
+         <montionBac>assez bien</montionBac>
       </bac>
-   </diplomeBac>
+      <bac cne="i123456789" idBac="a65a803bfad998">
+         <typeBac>SVT</typeBac>
+         <dateObtnBac>2024-01-15</dateObtnBac>
+         <region>Laayoune-Sakia El Hamra</region>
+         <academie>Académie Régionale d'Éducation et de Formation Laâyoune-Sakia El Hamra</academie>
+         <noteBac>18.09</noteBac>
+         <montionBac>tres bien</montionBac>
+      </bac>
+      <bac cne="q123456789" idBac="a65a831c30c4ff">
+         <typeBac>MATH</typeBac>
+         <dateObtnBac>2024-01-12</dateObtnBac>
+         <region>Guelmim-Oued Noun</region>
+         <academie>Académie Régionale d'Éducation et de Formation Guelmim-Oued Noun</academie>
+         <noteBac>19.08</noteBac>
+         <montionBac>tres bien</montionBac>
+      </bac>
+      <bac cne="k098765432" idBac="a65a8333392670"><typeBac>SVT</typeBac><dateObtnBac>2024-01-20</dateObtnBac><region>Marrakech-Safi</region><academie>Académie Régionale d'Éducation et de Formation (AREF) Marrakech-Safi</academie><noteBac>15.9</noteBac><montionBac>bien</montionBac></bac></diplomeBac>
    <concours>
       <concour idConcours="CNC-01">
          <dateCouncour>2023-09-30</dateCouncour>
-         <condidatConcours>
-            <idCondidat>COND-01</idCondidat>
-         </condidatConcours>
+         <condidatConcours cne="G138377743"/>
       </concour>
    </concours>
    <dossiers-physiques>
-      <dossier-physique idDossier="DOS-01" idCondidat="COND-01">
+      <dossier-physique idDossier="DOS-01" cne="COND-01">
          <pdf-cin>true</pdf-cin>
          <pdf-bac>true</pdf-bac>
          <pdf-bac2>true</pdf-bac2>

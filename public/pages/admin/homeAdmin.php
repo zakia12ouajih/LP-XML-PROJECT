@@ -30,7 +30,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/LP-XML-PROJECT/includes/header.php");
 
 
 <body>
-   <h1>hello admin</h1>
+   <h1>hello </h1>
    <?php echo $userRole;?>
 </body>
 

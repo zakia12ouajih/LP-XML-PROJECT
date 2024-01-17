@@ -39,7 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       foreach ($xml->condidats->children() as $condidat) {
          if ($condidat->email == $email && $password == $condidat->password) {
             $_SESSION['email'] = $email;
-            $_SESSION['userRole'] = (string)$condidat->role; // Save user role in session
+            $_SESSION['userRole'] = (string)$condidat->role;
+            // $_SESSION['cne']=$condidat['cne'];
+            // $_SESSION['condidat'] = $condidat;
+            
             $authenticated = true;
             break;
          }
@@ -53,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 
    // Check user role and redirect accordingly
-   if ($authenticated) {
+   if ($authenticated ) {
       switch ($_SESSION['userRole']) {
          case 'admin':
             header("Location: /LP-XML-PROJECT/public/admin/homeAdmin");

@@ -3,9 +3,7 @@
    <xsl:template match="/">
       <html>
          <body>
-
             <h2>Liste Administration</h2>
-            
             <table class="table table-hover table-bordered mt-3 ">
                <thead>
                   <tr class="px-2">
@@ -43,11 +41,7 @@
                            data-bs-target="#edit_{@idDirecteur-generale}">
                            <span class="glyphicon glyphicon-edit"></span> Edit </button>
                      </td>
-                     <td>
-                        <button type="button" class="btn btn-danger btn-sm mx-2" data-bs-toggle="modal"
-                           data-bs-target="#edit_{@idDirecteur-generale}">
-                           <span class="glyphicon glyphicon-edit"></span> delete </button>
-                     </td>
+                     
                   </tr>
                </xsl:for-each>
                <xsl:for-each select="est-safi/adminEcole/directeur-adjoint">
@@ -204,8 +198,10 @@
                      </div>
                   </div>
                </div>
+               
+
             </xsl:for-each>
-            
+
 
             <!-- //////////////////////// modal Directeur-adjoint/////////////////////////////////////////////////////////////////////// -->
 

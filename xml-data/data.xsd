@@ -13,7 +13,7 @@
             <xs:element ref="departements"></xs:element>
             <xs:element ref="condidats"></xs:element>
             <xs:element ref="matieres"></xs:element>
-            <xs:element ref="preinscriptions-1"></xs:element>
+            <xs:element ref="preinscriptions1"></xs:element>
             <xs:element ref="preinscriptions-2"></xs:element>
             <xs:element ref="diplomeBac2"></xs:element>
             <xs:element ref="diplomeBac"></xs:element>
@@ -30,7 +30,7 @@
    <xs:element name="email" type="emailType"/>
    <xs:element name="password" type="passwordType"/>
    <xs:element name="tele" type="teleType"/>
-   <xs:element name="cne" type="cneType"/>
+   <xs:element name="cne" type="cne"/>
    <xs:element name="role" type="roleType"></xs:element>
    <xs:simpleType name="roleType">
       <xs:restriction base="xs:string">
@@ -52,7 +52,7 @@
    </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="cneType">
+   <xs:simpleType name="cne">
    <xs:restriction base="xs:string">
 <!-- Define a pattern for Morocco CNE number -->
 <xs:pattern value="[A-Z]\d{9}"/>
@@ -229,7 +229,7 @@
       <xs:element name="condidats">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="condidat" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="condidat" minOccurs="1" maxOccurs="unbounded"></xs:element>
          </xs:sequence>  
       </xs:complexType>  
       </xs:element>  
@@ -241,12 +241,11 @@
             <xs:element name="date_naissance" type="xs:date"/>
             <xs:element ref="tele" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="cin" minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="cne" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="email" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="password" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="role" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
-         <xs:attribute name="idcondidat" type="xs:ID"></xs:attribute>
+         <xs:attribute name="cne" type="xs:ID"></xs:attribute>
       </xs:complexType>
    </xs:element>
 
@@ -351,7 +350,6 @@
    
    
    
-   <xs:element name="nomBac" type="xs:string"></xs:element>
    <xs:element name="dateObtnBac" type="xs:date"></xs:element>
    <xs:element name="noteBac" type="xs:double"></xs:element>
    <xs:element name="montionBac" type="montionBac2M"></xs:element>
@@ -369,15 +367,12 @@
    <xs:element name="bac2">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="nomBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="typeBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="dateObtnBac2" minOccurs="1" maxOccurs="1"></xs:element>
-            <xs:element ref="region" minOccurs="1" maxOccurs="1"></xs:element>
-            <xs:element ref="academie" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="noteBac2" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="montionBac2" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
-         <xs:attribute name="idCondidat" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="cne" type="xs:IDREF" use="required"></xs:attribute>
          <xs:attribute name="idBac2" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
 
@@ -387,14 +382,13 @@
    <xs:element name="diplomeBac">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="bac" minOccurs="1" maxOccurs="1"></xs:element>
+            <xs:element ref="bac" minOccurs="1" maxOccurs="unbounded"></xs:element>
          </xs:sequence>
       </xs:complexType>
    </xs:element>
 <xs:element name="bac">
       <xs:complexType>
          <xs:sequence>
-            <xs:element ref="nomBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="typeBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="dateObtnBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="region" minOccurs="1" maxOccurs="1"></xs:element>
@@ -402,7 +396,7 @@
             <xs:element ref="noteBac" minOccurs="1" maxOccurs="1"></xs:element>
             <xs:element ref="montionBac" minOccurs="1" maxOccurs="1"></xs:element>
          </xs:sequence>
-         <xs:attribute name="idCondidat" type="xs:IDREF" use="required"></xs:attribute>
+         <xs:attribute name="cne" type="xs:IDREF" use="required"></xs:attribute>
          <xs:attribute name="idBac" type="xs:ID" use="required"></xs:attribute>
       </xs:complexType>
 
@@ -411,13 +405,13 @@
 <!-- ######################################################################################################################## -->
 <!-- CONCOURs -->
 <xs:element name="dateCouncour" type="xs:date"></xs:element>
-<xs:element name="condidatConcours" type="condidatConcoursType"></xs:element>
+<xs:element name="condidatConcours">
+   <xs:complexType>
+      <xs:attribute name="cne" type="xs:IDREF"></xs:attribute>
+   </xs:complexType>
+</xs:element>
 
-<xs:complexType name="condidatConcoursType" >
-   <xs:sequence>
-      <xs:element name="idCondidat" type="xs:IDREF" maxOccurs="unbounded" minOccurs="1"></xs:element>
-   </xs:sequence>
-</xs:complexType>
+
 
 <xs:element name="concours">
    <xs:complexType>
@@ -457,20 +451,20 @@
          <xs:element ref="pdf-bac2" minOccurs="1" maxOccurs="1"></xs:element>
       </xs:sequence>
       <xs:attribute name="idDossier" type="xs:ID"></xs:attribute>
-      <xs:attribute name="idCondidat" type="xs:IDREF"></xs:attribute>
+      <xs:attribute name="cne" type="xs:IDREF"></xs:attribute>
    </xs:complexType>
 </xs:element>
 
       <!-- ######################################################################################################################## -->
    <!-- preinscription-1 -->
-      <xs:element name="preinscriptions-1">
+      <xs:element name="preinscriptions1">
          <xs:complexType>
             <xs:sequence>
-               <xs:element ref="preinscription-1"></xs:element>
+               <xs:element ref="preinscription1"></xs:element>
             </xs:sequence>
          </xs:complexType>
       </xs:element>
-      <xs:element name="preinscription-1">
+      <xs:element name="preinscription1">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="status" type="xs:boolean"/>

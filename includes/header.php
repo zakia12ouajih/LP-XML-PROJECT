@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="#">
          <?php
          if (isset($_SESSION['email']) || isset($_SESSION['userRole'])) {
-            echo '<img src="../../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
+            echo '<img src="/LP-XML-PROJECT/public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
          } else {
             echo '<img src="../public/images/EST-Safi-listes-des-admis-DUT-2018-removebg-preview1.png" class="mx-3" alt="gi" width="80">';
          }
@@ -26,13 +26,20 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <?php if ($userRole == 'admin') : ?>
+            <h1>admin</h1>
+         <?php elseif ($userRole == 'condidat') : ?>
+            <!-- <p></p> -->
+         <?php endif; ?>
          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
-               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin">Home</a>
-               <?php elseif (!isset($_SESSION['userRole'])):?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin">Home</a>
+               <?php elseif (!isset($_SESSION['userRole'])) : ?>
                   <a class="nav-link" href="/LP-XML-PROJECT/public/home">Home</a>
-               <?php endif;?>
+               <?php elseif ($userRole == 'condidat') : ?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/condidat/homecondidat">Home</a>
+               <?php endif; ?>
             </li>
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
@@ -47,13 +54,13 @@
             </li>
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
-               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/filiere">Filiere</a>
-               <?php endif;?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/filiere">Filiere</a>
+               <?php endif; ?>
             </li>
          </ul>
-         
-         
-         
+
+
+
 
          <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
