@@ -36,8 +36,14 @@
             </li>
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
-               <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/administration">Administration</a>
-               <?php endif;?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/admin/homeAdmin/administration">Administration</a>
+               <?php endif; ?>
+            </li>
+
+            <li class="nav-item active">
+               <?php if ($userRole == 'condidat') : ?>
+                  <a class="nav-link" href="/LP-XML-PROJECT/public/condidat/preinscription1">preinscription1</a>
+               <?php endif; ?>
             </li>
             <li class="nav-item active">
                <?php if ($userRole == 'admin') : ?>
@@ -58,7 +64,7 @@
                      Director General
                   <?php elseif ($userRole == 'condidat') : ?>
                      condidat
-                  <?php elseif(!isset($_SESSION['email']) || !isset($_SESSION['userRole'])):?>
+                  <?php elseif (!isset($_SESSION['email']) || !isset($_SESSION['userRole'])) : ?>
                      Connexion
                   <?php else : ?>
                      <!-- Add more cases for other roles -->
