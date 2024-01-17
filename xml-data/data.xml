@@ -8,7 +8,7 @@
    </adminApp>
    <adminEcole>
       <directeur-generale idDirecteur-generale="DG-01">
-         <nom>directeur generale 1 nom2</nom>
+         <nom>directeur generale 1 nom3</nom>
          <prenom>directeur generale 1 prenom1</prenom>
          <tele>0664736273</tele>
          <cin>JH209378</cin>
